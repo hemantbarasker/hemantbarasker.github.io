@@ -49,18 +49,6 @@
     }
     nav a:hover { color: #dbeafe; }
 
-    /* Highlight active section using :target */
-    section:target ~ nav a[href="#summary"],
-    #summary:target ~ nav a[href="#summary"] { font-weight: bold; color: #ffeb3b; }
-    section:target ~ nav a[href="#skills"],
-    #skills:target ~ nav a[href="#skills"] { font-weight: bold; color: #ffeb3b; }
-    section:target ~ nav a[href="#experience"],
-    #experience:target ~ nav a[href="#experience"] { font-weight: bold; color: #ffeb3b; }
-    section:target ~ nav a[href="#education"],
-    #education:target ~ nav a[href="#education"] { font-weight: bold; color: #ffeb3b; }
-    section:target ~ nav a[href="#achievements"],
-    #achievements:target ~ nav a[href="#achievements"] { font-weight: bold; color: #ffeb3b; }
-
     /* Section Cards */
     .card {
       background: #ffffff;
@@ -84,6 +72,39 @@
       text-align: center;
       padding: 40px 20px;
       color: #6b7280;
+    }
+
+    /* Add scroll margin for sticky nav offset */
+    section {
+      scroll-margin-top: 70px; /* height of nav bar */
+    }
+
+    /* Highlight current section link using :target */
+    section:target ~ nav a[href="#summary"],
+    #summary:target ~ nav a[href="#summary"],
+    #summary:target + nav a[href="#summary"] {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+    section:target ~ nav a[href="#skills"],
+    #skills:target ~ nav a[href="#skills"] {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+    section:target ~ nav a[href="#experience"],
+    #experience:target ~ nav a[href="#experience"] {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+    section:target ~ nav a[href="#education"],
+    #education:target ~ nav a[href="#education"] {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+    section:target ~ nav a[href="#achievements"],
+    #achievements:target ~ nav a[href="#achievements"] {
+      color: #ffeb3b;
+      font-weight: bold;
     }
 
     @media(max-width: 768px) {
@@ -145,7 +166,6 @@
 
   <section id="experience" class="card">
     <h3>Professional Experience</h3>
-
     <h4>Citi Corp – Team Lead / Senior Java Engineer (C11) | Nov 2021 – Present</h4>
     <ul>
       <li>Lead backend development for trade finance and document-processing systems.</li>
