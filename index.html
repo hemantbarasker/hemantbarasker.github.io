@@ -61,9 +61,10 @@
       color: #dbeafe; 
       background: rgba(255,255,255,0.1);
     }
+    /* Active link - subtle underline instead of yellow */
     nav a.active {
-      background: #ffeb3b;
-      color: #1f2937;
+      border-bottom: 2px solid #ffffff; /* subtle white underline */
+      color: #ffffff;
       font-weight: bold;
     }
 
@@ -227,6 +228,7 @@
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
+    // Shrink navbar & show back-to-top after 100px
     if(window.scrollY > 100){
       navbar.classList.add('shrink');
       backToTop.classList.add('show');
@@ -235,7 +237,7 @@
       backToTop.classList.remove('show');
     }
 
-    // Highlight nav links
+    // Highlight nav links based on section
     document.querySelectorAll('section').forEach(section => {
       const top = section.offsetTop - 80;
       const bottom = top + section.offsetHeight;
