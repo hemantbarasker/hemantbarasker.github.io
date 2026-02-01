@@ -13,6 +13,7 @@
       color: #1f2937;
       scroll-behavior: smooth;
     }
+
     .container {
       max-width: 1100px;
       margin: auto;
@@ -25,29 +26,41 @@
       grid-template-columns: 2fr 1fr;
       gap: 40px;
       align-items: center;
+      margin-bottom: 20px;
     }
     h1 { font-size: 42px; margin-bottom: 10px; }
     h2 { font-size: 22px; font-weight: 500; color: #2563eb; }
     header img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #2563eb; max-width: 100%; }
 
-    /* Sticky Navigation Bar */
+    /* Sticky Navigation Bar with shrink/elevation on scroll */
     nav {
       position: sticky;
       top: 0;
       background: #2563eb;
-      padding: 10px 0;
+      padding: 15px 0;
       text-align: center;
       border-radius: 0 0 8px 8px;
       z-index: 1000;
+      box-shadow: 0 0 0 transparent;
+      transition: all 0.3s ease;
     }
     nav a {
       color: #ffffff;
       text-decoration: none;
       font-weight: 500;
       margin: 0 15px;
-      transition: color 0.3s, font-weight 0.3s;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
     }
-    nav a:hover { color: #dbeafe; }
+    nav a:hover { 
+      color: #dbeafe; 
+      background: rgba(255,255,255,0.1);
+    }
+    nav.shrink {
+      padding: 8px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
 
     /* Section Cards */
     .card {
@@ -74,39 +87,41 @@
       color: #6b7280;
     }
 
-    /* Add scroll margin for sticky nav offset */
+    /* Scroll margin for sticky nav offset */
     section {
-      scroll-margin-top: 70px; /* height of nav bar */
+      scroll-margin-top: 70px;
     }
 
-    /* Highlight current section link using :target */
-    section:target ~ nav a[href="#summary"],
-    #summary:target ~ nav a[href="#summary"],
-    #summary:target + nav a[href="#summary"] {
-      color: #ffeb3b;
-      font-weight: bold;
-    }
-    section:target ~ nav a[href="#skills"],
-    #skills:target ~ nav a[href="#skills"] {
-      color: #ffeb3b;
-      font-weight: bold;
-    }
-    section:target ~ nav a[href="#experience"],
-    #experience:target ~ nav a[href="#experience"] {
-      color: #ffeb3b;
-      font-weight: bold;
-    }
-    section:target ~ nav a[href="#education"],
-    #education:target ~ nav a[href="#education"] {
-      color: #ffeb3b;
-      font-weight: bold;
-    }
-    section:target ~ nav a[href="#achievements"],
-    #achievements:target ~ nav a[href="#achievements"] {
-      color: #ffeb3b;
+    /* Highlight current section link */
+    nav a.active {
+      background: #ffeb3b;
+      color: #1f2937;
       font-weight: bold;
     }
 
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2563eb;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Media Queries */
     @media(max-width: 768px) {
       header { grid-template-columns: 1fr; text-align: center; }
       header img { margin-top: 20px; }
@@ -134,8 +149,8 @@
   </header>
 
   <!-- Sticky Navigation -->
-  <nav>
-    <a href="#summary">Summary</a>
+  <nav id="navbar">
+    <a href="#summary" class="active">Summary</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
@@ -207,6 +222,22 @@
   </footer>
 
 </div>
+
+<!-- Back to Top Button -->
+<a href="#top" id="backToTop">↑ Top</a>
+
+<!-- CSS-only scroll/shrink effects -->
+<style>
+  /* Trigger nav shrink and back to top button with :target hack */
+  body:has(:target) nav {
+    padding: 8px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  }
+  body:has(:target) #backToTop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
 
 </body>
 </html>
