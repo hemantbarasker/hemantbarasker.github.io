@@ -6,36 +6,104 @@
   <title>Hemant Barasker | Senior Java Engineer</title>
   <meta name="description" content="Hemant Barasker – Senior Java Engineer & Team Lead with 10+ years of experience in Java, Spring Boot, and Microservices." />
   <style>
-    /* ---------- General Styles ---------- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Inter, Arial, sans-serif; background: #f8fafc; color: #1f2937; line-height: 1.6; scroll-behavior: smooth; }
-    a { color: #2563eb; text-decoration: none; }
-    .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-
-    /* ---------- Header ---------- */
-    header { display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 40px; }
-    header h1 { font-size: 48px; color: #111827; margin-bottom: 10px; opacity: 0; transform: translateY(-20px); transition: all 0.6s ease; }
-    header h2 { font-size: 22px; font-weight: 500; color: #2563eb; margin-bottom: 20px; opacity: 0; transform: translateY(-20px); transition: all 0.6s ease 0.2s; }
-    header p { font-size: 16px; color: #374151; opacity: 0; transform: translateY(-20px); transition: all 0.6s ease 0.4s; }
-
-    /* ---------- Navigation ---------- */
-    nav { margin-bottom: 40px; text-align: center; opacity: 0; transform: translateY(-20px); transition: all 0.6s ease 0.6s; }
-    nav a { margin: 0 15px; font-weight: 500; transition: color 0.3s; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease;
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #2563eb;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    .summary {
+      margin-top: 20px;
+      line-height: 1.7;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s ease 0.6s;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
     nav a:hover { color: #1d4ed8; }
 
-    /* ---------- Cards / Sections ---------- */
-    section { background: #ffffff; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
-    section h3 { font-size: 24px; color: #2563eb; margin-bottom: 20px; }
-    section ul { padding-left: 20px; margin-top: 10px; }
-    section li { margin-bottom: 10px; }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    section#summary { border-left: 6px solid #2563eb; }
+    section#skills { border-left: 6px solid #16a34a; }
+    section#experience { border-left: 6px solid #d97706; }
+    section#education { border-left: 6px solid #db2777; }
+    section#achievements { border-left: 6px solid #0ea5e9; }
 
-    /* ---------- Skills ---------- */
-    .skills span { display: inline-block; background: #e5e7eb; padding: 8px 12px; margin: 6px 6px 0 0; border-radius: 8px; font-size: 14px; }
+    .skills span {
+      display: inline-block;
+      background: #e5e7eb;
+      padding: 8px 12px;
+      margin: 6px 6px 0 0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .skills span:hover {
+      background: #2563eb;
+      color: #fff;
+      transform: translateY(-3px);
+    }
 
-    /* ---------- Footer ---------- */
-    footer { text-align: center; padding: 40px 20px; color: #6b7280; font-size: 14px; }
+    ul { padding-left: 20px; }
+    a { color: #2563eb; text-decoration: none; font-weight: 500; }
 
-    /* ---------- Back to Top Button ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
     #backToTop {
       position: fixed;
       bottom: 30px;
@@ -53,11 +121,11 @@
     }
     #backToTop.show { opacity: 1; pointer-events: auto; }
 
-    /* ---------- Responsive ---------- */
     @media(max-width: 768px) {
-      header h1 { font-size: 36px; }
-      header h2 { font-size: 18px; }
+      header { grid-template-columns: 1fr; }
       nav a { display: block; margin: 10px 0; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 18px; }
     }
   </style>
 </head>
@@ -67,11 +135,15 @@
 
   <!-- Header -->
   <header>
-    <h1>Hemant Barasker</h1>
-    <h2>Team Lead / Senior Java Engineer (IC) – Microservices & Banking Systems</h2>
-    <p>Senior Java Engineer with <strong>10+ years of experience</strong> in enterprise banking and fintech applications.</p>
-    <p>📍 Pune, India · 📧 <a href="mailto:hemant.barasker@gmail.com">hemant.barasker@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> · <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio</a></p>
+    <div>
+      <h1>Hemant Barasker</h1>
+      <h2>Team Lead / Senior Java Engineer (IC) – Microservices & Banking Systems</h2>
+      <p class="summary">
+        Senior Java Engineer with <strong>10+ years of experience</strong> in enterprise banking and fintech applications.
+      </p>
+      <p>📍 Pune, India · 📧 <a href="mailto:hemant.barasker@gmail.com">hemant.barasker@gmail.com</a></p>
+      <p>🔗 <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> · <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio</a></p>
+    </div>
   </header>
 
   <!-- Navigation -->
@@ -84,14 +156,14 @@
   </nav>
 
   <!-- Sections -->
-  <section id="summary">
+  <section id="summary" class="card">
     <h3>Professional Summary</h3>
     <p>
       Senior Java Engineer with 10+ years of experience in enterprise web application development within banking and financial services. Currently a Team Lead (C11) at Citi, combining hands-on backend development with leadership of a 4-member engineering team. Strong expertise in Java, Spring Boot, Microservices, REST APIs, and database-driven systems. Proven ability to deliver scalable, secure, and high-performance applications while maintaining code quality, mentoring engineers, and ensuring reliable production operations.
     </p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="card">
     <h3>Core Technical Skills</h3>
     <div class="skills">
       <span>Java</span><span>J2EE</span><span>Spring</span><span>Spring MVC</span><span>Spring Boot 3</span>
@@ -105,9 +177,8 @@
     </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="card">
     <h3>Professional Experience</h3>
-
     <h4>Citi Corp – Team Lead / Senior Java Engineer (C11) | Nov 2021 – Present</h4>
     <ul>
       <li>Lead backend development for multiple trade finance and document-processing systems used in global banking operations.</li>
@@ -135,13 +206,13 @@
     </ul>
   </section>
 
-  <section id="education">
+  <section id="education" class="card">
     <h3>Education</h3>
     <p><strong>Bachelor of Science – Computer Science & Engineering</strong><br />
     RGPV University, Bhopal (2009 – 2013)</p>
   </section>
 
-  <section id="achievements">
+  <section id="achievements" class="card">
     <h3>Achievements</h3>
     <ul>
       <li>Spot Award – Citi Bank for impactful contribution</li>
@@ -156,10 +227,8 @@
 
 </div>
 
-<!-- Back to Top Button -->
 <button id="backToTop">↑ Top</button>
 
-<!-- ---------- JS for animations & back-to-top ---------- -->
 <script>
   // Scroll Animations
   const observer = new IntersectionObserver(entries => {
@@ -171,10 +240,9 @@
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('header, nav, section').forEach(el => observer.observe(el));
 
-  // Back to Top
+  // Back to Top Button
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if(window.scrollY > 300){
