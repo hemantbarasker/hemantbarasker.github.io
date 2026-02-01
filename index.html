@@ -8,140 +8,144 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9fafb;
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
     header {
-      background: #0f172a;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: center;
     }
-    header h1 { margin-bottom: 10px; }
-    header p { max-width: 800px; margin: auto; }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
     }
     h2 {
-      color: #0f172a;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
+      font-size: 22px;
+      font-weight: 500;
+      color: #2563eb;
     }
-    ul { padding-left: 20px; }
+    .summary {
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
     .skills span {
       display: inline-block;
       background: #e5e7eb;
-      padding: 6px 10px;
+      padding: 8px 12px;
       margin: 6px 6px 0 0;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 14px;
     }
-    .card {
-      background: #fff;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+    ul { padding-left: 20px; }
+    a { color: #2563eb; text-decoration: none; font-weight: 500; }
     footer {
-      background: #0f172a;
-      color: #fff;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 40px 20px;
+      color: #6b7280;
     }
-    a { color: #2563eb; text-decoration: none; }
+    @media(max-width: 768px) {
+      header { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
+<div class="container">
+
 <header>
-  <h1>Hemant Barasker</h1>
-  <h3>Senior Java Developer | Team Leader | Microservices Specialist</h3>
-  <p>Pune, India · 12+ Years Experience · Banking & Financial Systems</p>
-  <p>
-    <a href="mailto:hemant.barasker@gmail.com">hemant.barasker@gmail.com</a> | 
-    <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> | 
-    <a href="https://bold.pro/my/hemant-barasker/600r" target="_blank">Bold Profile</a> | 
-    <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio Website</a>
-  </p>
+  <div>
+    <h1>Hemant Barasker</h1>
+    <h2>Senior Java Developer · Team Leader · Microservices</h2>
+    <p class="summary">
+      Senior Java professional with <strong>12+ years of experience</strong> in enterprise web application development and maintenance.
+      Specialized in RESTful APIs, Microservices architecture, and large-scale banking systems.
+    </p>
+    <p>
+      📍 Pune, India<br />
+      📧 <a href="mailto:hemant.barasker@gmail.com">hemant.barasker@gmail.com</a><br />
+      🔗 <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> ·
+      <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio</a>
+    </p>
+  </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
+<section class="card">
+  <h3>Professional Summary</h3>
   <p>
-    I am a Senior Java Developer and Team Leader with over 10 years of experience in designing, developing, and maintaining enterprise-scale web applications. I specialize in RESTful APIs and Microservices using Java and the Spring ecosystem.
-  </p>
-  <p>
-    My professional journey spans banking and financial domains, where I’ve delivered high-performance, secure, and scalable solutions while mentoring teams and driving engineering excellence.
+    I have extensive experience in Java, Spring, Spring Boot, Hibernate, and Microservices development.
+    My expertise includes SQL and NoSQL databases such as PostgreSQL, IBM DB2, Neo4j, MongoDB, and Cassandra.
+    I have delivered secure, high-performance systems across the complete software development lifecycle.
   </p>
 </section>
 
-<section>
-  <h2>Technical Skills</h2>
+<section class="card">
+  <h3>Core Skills</h3>
   <div class="skills">
-    <span>Java</span><span>J2EE</span><span>Spring</span><span>Spring Boot</span><span>Microservices</span>
-    <span>REST APIs</span><span>Hibernate</span><span>JDBC</span><span>JUnit</span><span>Mockito</span>
+    <span>Java</span><span>Spring Boot</span><span>Microservices</span><span>REST APIs</span>
+    <span>Hibernate</span><span>JDBC</span><span>JUnit</span><span>Mockito</span>
     <span>PostgreSQL</span><span>IBM DB2</span><span>Neo4j</span><span>MongoDB</span><span>Cassandra</span>
-    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>JSON</span><span>XML</span>
-    <span>Apache Tomcat</span><span>JBoss</span><span>RHPAM</span><span>IBM Watson</span>
+    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>JSON</span>
   </div>
 </section>
 
-<section>
-  <h2>Professional Experience</h2>
+<section class="card">
+  <h3>Experience</h3>
 
-  <div class="card">
-    <h3>Team Leader – C11 | Citi Corp (Nov 2021 – Present)</h3>
-    <ul>
-      <li>Led development for Trade Finance and document processing systems.</li>
-      <li>Projects: TFR, TDU, Global Rollover, IN-OUT Bound AUISO.</li>
-      <li>Mentored developers, set performance goals, and improved delivery efficiency.</li>
-      <li>Streamlined workflows, reducing turnaround time for critical processes.</li>
-    </ul>
-  </div>
+  <h4>Citi Corp – Team Leader (C11) | 2021 – Present</h4>
+  <ul>
+    <li>Led development of Trade Finance and document processing systems.</li>
+    <li>Architected and enhanced microservices for global banking platforms.</li>
+    <li>Mentored engineers and improved team delivery efficiency.</li>
+  </ul>
 
-  <div class="card">
-    <h3>Senior Software Engineer | Xoriant (Nov 2019 – Nov 2021)</h3>
-    <ul>
-      <li>Worked on CASE System (KPMG) and Treasury Collector (Citi Bank).</li>
-      <li>Resolved complex technical issues and improved system stability.</li>
-      <li>Conducted code reviews and mentored junior developers.</li>
-    </ul>
-  </div>
+  <h4>Xoriant – Senior Software Engineer | 2019 – 2021</h4>
+  <ul>
+    <li>Developed CASE System (KPMG) and Treasury Collector for Citi Bank.</li>
+    <li>Improved performance and reliability of enterprise applications.</li>
+  </ul>
 
-  <div class="card">
-    <h3>Senior Software Engineer | Yash Technologies (May 2016 – May 2019)</h3>
-    <ul>
-      <li>Developed scalable applications using Agile methodologies.</li>
-      <li>Projects: ILIndex, EFIC System, RMS.</li>
-      <li>Managed multiple projects with high-quality standards.</li>
-    </ul>
-  </div>
+  <h4>Yash Technologies – Senior Software Engineer | 2016 – 2019</h4>
+  <ul>
+    <li>Built scalable applications using Agile methodologies.</li>
+    <li>Worked on ILIndex, EFIC System, and RMS projects.</li>
+  </ul>
 </section>
 
-<section>
-  <h2>Education</h2>
-  <p><strong>Bachelor of Science – Computer Science & Engineering</strong><br />
-  RGPV University, Bhopal (2009 – 2013)</p>
+<section class="card">
+  <h3>Education</h3>
+  <p><strong>B.Sc. Computer Science & Engineering</strong><br />
+  RGPV University, Bhopal</p>
 </section>
 
-<section>
-  <h2>Achievements</h2>
+<section class="card">
+  <h3>Achievements</h3>
   <ul>
     <li>Spot Award – Citi Bank</li>
-    <li>Pat on the Back – On-time delivery of critical projects</li>
+    <li>Pat on the Back – On-time delivery</li>
     <li>Best Employee of the Month – Yash Technologies</li>
   </ul>
 </section>
 
 <footer>
-  <p>© 2026 Hemant Barasker | Java • Microservices • Banking Systems</p>
+  © 2026 Hemant Barasker · Java · Microservices · Banking Systems
 </footer>
+
+</div>
 
 </body>
 </html>
