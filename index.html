@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hemant Barasker | Senior Java Engineer</title>
+  <title>Hemant Barasker | Senior Java Engineer & Team Lead</title>
   <meta name="description" content="Hemant Barasker – Senior Java Engineer & Team Lead with 10+ years of experience in Java, Spring Boot, and Microservices." />
   <style>
     body {
@@ -32,7 +32,7 @@
     h2 { font-size: 22px; font-weight: 500; color: #2563eb; }
     header img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #2563eb; max-width: 100%; }
 
-    /* Sticky Navigation Bar with shrink/elevation on scroll */
+    /* Sticky Navigation Bar */
     nav {
       position: sticky;
       top: 0;
@@ -43,6 +43,10 @@
       z-index: 1000;
       box-shadow: 0 0 0 transparent;
       transition: all 0.3s ease;
+    }
+    nav.shrink {
+      padding: 8px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
     nav a {
       color: #ffffff;
@@ -57,9 +61,10 @@
       color: #dbeafe; 
       background: rgba(255,255,255,0.1);
     }
-    nav.shrink {
-      padding: 8px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    nav a.active {
+      background: #ffeb3b;
+      color: #1f2937;
+      font-weight: bold;
     }
 
     /* Section Cards */
@@ -87,17 +92,7 @@
       color: #6b7280;
     }
 
-    /* Scroll margin for sticky nav offset */
-    section {
-      scroll-margin-top: 70px;
-    }
-
-    /* Highlight current section link */
-    nav a.active {
-      background: #ffeb3b;
-      color: #1f2937;
-      font-weight: bold;
-    }
+    section { scroll-margin-top: 70px; }
 
     /* Back to Top Button */
     #backToTop {
@@ -139,7 +134,7 @@
   <header>
     <div>
       <h1>HEMANT BARASKER</h1>
-      <h2>Senior / Staff Java Engineer | Microservices Architect | Banking Systems</h2>
+      <h2>Senior Java Engineer & Team Lead | Microservices & Banking Systems</h2>
       <p>📍 Pune, India | 📞 +91-9630869654 | 📧 <a href="mailto:hemant.barasker@gmail.com">hemant.barasker@gmail.com</a></p>
       <p>🔗 <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> · <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio</a></p>
     </div>
@@ -161,7 +156,7 @@
   <section id="summary" class="card">
     <h3>Professional Summary</h3>
     <p>
-      Senior Java Engineer with 10+ years of experience in enterprise web application development within banking and financial services. Currently a Team Lead (C11) at Citi, combining hands-on backend development with leadership of a 4-member engineering team. Strong expertise in Java, Spring Boot, Microservices, REST APIs, and database-driven systems. Proven ability to deliver scalable, secure, and high-performance applications while maintaining code quality, mentoring engineers, and ensuring reliable production operations.
+      Senior Java Engineer with 10+ years of experience in enterprise web application development within banking and financial services. Currently working as a **Team Lead (C11) at Citi**, combining hands-on backend development with mentoring and leading a 4-member engineering team. Strong expertise in Java, Spring Boot, Microservices, REST APIs, and database-driven systems. Proven ability to deliver scalable, secure, and high-performance applications while maintaining code quality and production stability.
     </p>
   </section>
 
@@ -226,18 +221,33 @@
 <!-- Back to Top Button -->
 <a href="#top" id="backToTop">↑ Top</a>
 
-<!-- CSS-only scroll/shrink effects -->
-<style>
-  /* Trigger nav shrink and back to top button with :target hack */
-  body:has(:target) nav {
-    padding: 8px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  }
-  body:has(:target) #backToTop {
-    opacity: 1;
-    pointer-events: auto;
-  }
-</style>
+<!-- Scroll Interaction Script -->
+<script>
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 100){
+      navbar.classList.add('shrink');
+      backToTop.classList.add('show');
+    } else {
+      navbar.classList.remove('shrink');
+      backToTop.classList.remove('show');
+    }
+
+    // Highlight nav links
+    document.querySelectorAll('section').forEach(section => {
+      const top = section.offsetTop - 80;
+      const bottom = top + section.offsetHeight;
+      const link = document.querySelector(`nav a[href="#${section.id}"]`);
+      if(window.scrollY >= top && window.scrollY < bottom){
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
