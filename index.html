@@ -128,6 +128,9 @@
     }
     #backToTop.show { opacity: 1; pointer-events: auto; }
 
+    /* Current Section Highlight in Nav */
+    nav a.active { text-decoration: underline; color: #1d4ed8; }
+
     @media(max-width: 768px) {
       header { grid-template-columns: 1fr; text-align: center; }
       h1 { font-size: 36px; }
@@ -149,7 +152,7 @@
       <p>🔗 <a href="https://www.linkedin.com/in/hemant-barasker-java" target="_blank">LinkedIn</a> · <a href="https://hemantbarasker.github.io/" target="_blank">Portfolio</a></p>
     </div>
     <div>
-      <!-- Optional: Can leave blank or add a profile image -->
+      <!-- Optional: Profile image placeholder -->
     </div>
   </header>
 
@@ -233,34 +236,3 @@
   </footer>
 
 </div>
-
-<!-- Back to Top Button -->
-<button id="backToTop">↑ Top</button>
-
-<script>
-  // Scroll Animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('header, nav, section').forEach(el => observer.observe(el));
-
-  // Back to Top Button
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 300){
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
-  });
-  backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-</script>
-
-</body>
-</html>
